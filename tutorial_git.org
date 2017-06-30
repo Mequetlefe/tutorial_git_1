@@ -33,6 +33,10 @@
 
 * Subir un arhivo
 
-** git push 
-* prueba del github
-* segunda prueba 
+** git push
+
+* Descargar las versiones más actualizadas
+
+** git pull
+
+* 
