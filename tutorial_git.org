@@ -34,3 +34,5 @@
 * Subir un arhivo
 
 ** git push 
+* prueba del github
+* segunda prueba 
