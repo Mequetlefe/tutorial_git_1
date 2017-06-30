@@ -31,3 +31,6 @@
 
 ** git commit -m "mi comentario del archivo" 
 
+* Subir un arhivo
+
+** git push 
