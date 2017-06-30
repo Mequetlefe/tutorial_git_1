@@ -17,4 +17,17 @@
 
 ** git status
 
-* 
+* Agregar un archivo
+
+** Dentro de la carpeta donde se encuentra el git, comentar:
+
+*** git add <archivo>
+
+**** Para agregar todos archivos se usa el *, cómo en bash
+
+***** git add *
+
+* Commit en git
+
+** git commit -m "mi comentario del archivo" 
+
