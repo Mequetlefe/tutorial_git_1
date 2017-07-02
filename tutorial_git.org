@@ -39,8 +39,8 @@
 
 ** git pull
 
-<<<<<<< HEAD
-* seguimos probando 
-=======
-* unicamente entrada de prueba
->>>>>>> c606e8fa45ff2d76311ed4680e5fca025296fa6a
+* Mostrar todos los comandos de git
+
+** git
+
+* 
