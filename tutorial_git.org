@@ -43,4 +43,22 @@
 
 ** git
 
-* 
+* INICIALIZAR UN REPOSITORIO (desde un proyecto)
+
+** git init
+
+*** Se generan archivos .git, 
+
+* Dejar de usar un repositorio
+
+** Se borra la carpeta .git (rm -rf /.git)
+
+* Ignorar arcchivos de configuracion (.gitignore)
+
+** Se crea un archivo .gitignore (touch .gitignore)
+
+*** en el archivo plano de texto se agregan simplemente por columnas los archivos a ignorar
+
+*** .DS_project
+
+*** *.pyc
