@@ -93,4 +93,8 @@
 
 ** git checkout 'nombre de la branch'
 
-* Ulto
+* Push a Branch a una forma remota
+
+** git push -u originin 'nombre de la branch'
+
+** 
