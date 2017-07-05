@@ -77,4 +77,20 @@
 
 ** git diff
 
-* 
+* Mostrar información sobre el repositorio remoto
+
+** git remote -v
+
+* Mostrar todos los branches en el repositorio (tanto remotos como locales) 
+
+** git branch -a
+
+* Crear una BRANCH para una caracteristica en especial
+
+** git branch 'nombre de la branch'
+
+* Seleccionar una BRANCH para trabajar
+
+** git checkout 'nombre de la branch'
+
+* Ulto
