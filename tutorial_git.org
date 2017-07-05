@@ -61,4 +61,20 @@
 
 *** .DS_project
 
-*** *.pyc
+*** *.pyc (se pueden usar wildcards)
+
+* Borrar archivos del stagin area (despues del add)
+
+** git reset 'name.extention'
+
+* Ver informacion del repositorio remoto
+
+** git remote -v
+
+** git branch -a (muestra todas las ramas del repositorio, locales y remotas)
+
+* Mostrar los cambios realizados al archivo
+
+** git diff
+
+* 
