@@ -1,3 +1,4 @@
+
 * Tutorial de GIT
 ....###....########.########.########.##.....##
 ...##.##........##..##.......##.......###...###
@@ -95,6 +96,19 @@
 
 * Push a Branch a una forma remota
 
-** git push -u originin 'nombre de la branch'
+** git push -u origin 'nombre de la branch'
 
-** 
+* Diferencias entre branch locales y remotas
+
+** las branch remotas mencionan:
+
+*** remotes/origin/
+
+** las branchas locales omiten esa ruta
+* Merge a branch con Master
+
+** se siguen los siguientes pasos:
+1) git checkout master
+2) git pull origin master
+3) nos muestra las branch que se han fusionado hasta ahora
+   1) git branch --merged 
