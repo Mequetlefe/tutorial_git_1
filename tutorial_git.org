@@ -120,4 +120,12 @@
 1) git branch --merged
 2) git branch -d 'nombr de la branch' (se borró localmente) 
 3) git branch -a
-4) git push origin --delete 'nombre de la branch'  (se borró remotamente) 
+4) git push origin --delete 'nombre de la branch'  (se borró remotamente)
+
+* Revertir el último cambio en el branch (incluso master)
+1) before any push
+2) git checkout 'nombre_archivo.org'
+3) git diff
+4) git status
+   1) Se comprueba que no hubo cambio
+5) en emacs, C-x s (y selecconionar 'r' de reload from disk)
