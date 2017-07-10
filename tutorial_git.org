@@ -133,11 +133,13 @@
 1) git commit --amend -m "nuevo commit"
 
 * Corregir la dirección de una branch 
-1) 
-2)
+1) Se usa cherry pick
+   1) el cual crea un commit en base a uno previo 
+2) 
 
 * 
 
 
 =======
 >>>>>>> 4520fe6b48ac9d08cf6fa1ac51988958c58f0e7c
+
