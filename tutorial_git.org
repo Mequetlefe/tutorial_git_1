@@ -129,6 +129,7 @@
 4) git status
    1) Se comprueba que no hubo cambio
 5) en emacs, C-x s (y selecconionar 'r' de reload from disk)
+<<<<<<< HEAD
 * Cambiar el último commit (solo cuando SOMOS los únicos usandolo) (problemas con el git) 
 1) git commit --amend -m "nuevo commit"
 
@@ -139,3 +140,5 @@
 * 
 
 
+=======
+>>>>>>> 4520fe6b48ac9d08cf6fa1ac51988958c58f0e7c
