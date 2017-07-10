@@ -129,3 +129,9 @@
 4) git status
    1) Se comprueba que no hubo cambio
 5) en emacs, C-x s (y selecconionar 'r' de reload from disk)
+* Cambiar el último commit (solo cuando SOMOS los únicos usandolo) (problemas con el git) 
+1) git commit --amend -m "nuevo commit"
+
+* Corregir la dirección de una branch 
+1) 
+2) 
