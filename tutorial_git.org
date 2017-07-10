@@ -96,7 +96,7 @@
 * Push a Branch a una forma remota
 
 ** git push -u origin 'nombre de la branch'
-
+   
 * Diferencias entre branch locales y remotas
 
 ** las branch remotas mencionan:
@@ -134,7 +134,8 @@
 
 * Corregir la dirección de una branch 
 1) Se usa cherry pick
-   1) el cual crea un commit en base a uno previo 
+   1) el cual crea un commit en base a uno previo
+   2) Tiene que haber una diferencia de commits (uno es más actualizado que el otro) 
 2) 
 
 * 
