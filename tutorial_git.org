@@ -138,9 +138,6 @@
    2) Tiene que haber una diferencia de commits (uno es más actualizado que el otro) 
 2) 
 
-* 
+* Linea DE TRABAJO
 
-
-=======
->>>>>>> 4520fe6b48ac9d08cf6fa1ac51988958c58f0e7c
-
+* segunda linea de trabajo 
