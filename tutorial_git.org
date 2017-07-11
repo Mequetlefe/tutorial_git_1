@@ -6,7 +6,11 @@
 .#########...##.....##.......##.......##.....##
 .##.....##..##......##.......##.......##.....##
 .##.....##.########.########.########.##.....##
-
+1) El uso de git puede se usado remoto (GitHub) o local
+2) Local
+   1) Los cambios se actualizan cuando se proporciona el commit
+3) Remoto
+   1) Los cambios se producen cuando se proporciona el push
 * Clonar un repositorio
 
 ** Se necesita una URL, la copia del respositorio
@@ -128,7 +132,6 @@
 4) git status
    1) Se comprueba que no hubo cambio
 5) en emacs, C-x s (y selecconionar 'r' de reload from disk)
-<<<<<<< HEAD
 * Cambiar el último commit (solo cuando SOMOS los únicos usandolo) (problemas con el git) 
 1) git commit --amend -m "nuevo commit"
 
