@@ -1,0 +1,3 @@
+* Copiar directorios de forma recursiva
+1) cp -r (directorio 1) (directorio 2)
+2) 

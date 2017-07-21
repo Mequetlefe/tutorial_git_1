@@ -1,0 +1,6 @@
+* Copiar directorios de forma recursiva
+1) cp -r (directorio 1) (directorio 2)
+* Renombrar archivos
+1) mv <file 1> <file 2>
+   1) dentro del mismo directorio
+* 

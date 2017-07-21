@@ -79,3 +79,25 @@
    1) Seleccionar archivos
    2) !
       1) new window: firefox
+5) Buscar texto dentro de los archivos
+   1) shift+a=A
+      1) Texto a buscar
+6) Actualizar
+   1) g
+7) Renombrar:
+   1) R
+8) Copiar:
+   1) C
+9) Cambiar el orden del directorio:
+   1) S
+10) Deseleccionar todo
+    1) U
+11) Hacer un buffer editable
+    1) C-x C-q
+    2) Actualizar los cambios
+       1) C-c C-g
+    3) Refresh: g
+* Linea de comandos
+1) multi-term
+2) eshell
+3) 
