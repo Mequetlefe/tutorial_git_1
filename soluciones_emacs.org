@@ -1,0 +1,16 @@
+* Cuando la codificación ofrezca símbolos extranos (diferente codificacion) se soluciona
+1) MUY IMPORTANTE: M-x revert-buffer-with-coding-system (ABUSADO CHAVO)
+2) M-x set-buffer-file-coding-system
+3) seleccionar, utf8 
+4) Si no has cambiado el archivo, puede intentar M-x revert-buffer-with-coding-system. Uno de latin-1 o utf-8 , según el tipo de archivo.
+
+También puede marcar el archivo completo con C-x h y, a continuación, intente M-x recode-region. 
+Se le pedirá Text was really in y But was interpreted as. Para el primer archivo en su
+ pregunta, parece que debería ser latin-1 y utf-8, y para el segundo ejemplo, probablemente debería ser al revés, utf-8
+ y latin-1.
+
+Después de que le dieron la derecha, usted puede elegir que sistema de codificación para guardar el
+ archivo con el uso de M-x set-buffer-file-coding-system (o C-x C-m f , para abreviar).
+
+Fuente: https://www.enmimaquinafunciona.com/pregunta/44119/como-cambiar-el-texto-de-la-codificacion-a-utf-8-con-emacs
+

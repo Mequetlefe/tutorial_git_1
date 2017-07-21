@@ -1,0 +1,15 @@
+* Needs
+1) emacs Template system
+2) colocar marcas
+3) Insertar (yanks)
+4) Multiple cursors
+   1) adding a 'unique' id can't be done with search/replace
+   2) mode multiple cursors 
+
+
+clase 1
+clase 2
+clase 3
+clase 4
+clase 5
+clase 6 

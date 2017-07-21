@@ -1,0 +1,6 @@
+(defun my/insert-line-before ()
+  "Inserts new line. Creo o algo"
+  (interactive)
+  (save-excursion
+    (move-beginning-of-line 1)
+    (newline)))
