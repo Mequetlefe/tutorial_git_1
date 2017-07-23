@@ -1,3 +1,13 @@
+* Basics
+1) <something>
+   1) Necesario para el programa. Refiere comúnmente a una secuencia de carácteres
+2) <n>
+   1) Necesario para el programa. Refiere a un número
+3) [something]
+   1) Elemento opcional.
+4) pattern
+   1) Se escribe con comillas simples. 'mydata.txt'
+      1) usually a string
 * Copiar directorios de forma recursiva
 1) cp -r (directorio 1) (directorio 2)
 * Renombrar archivos
@@ -27,7 +37,7 @@
    1) Segmentacion
       1) primeros 3-owner
       2) segundos 3-group
-      3) ulti 3-others
+      3) ultimos 3-others
 4) Cambio de permisos
    1) chmod [permissions][path]
       1) forma manual
@@ -71,11 +81,13 @@
    3) uniq mysampledata.txt
 9) tac (imprime el archivo del último al primero ) (inverso de cat)
    1) tac [path]
-10) Grep and regular Expressions (reg for short) 
+* Grep and regular Expressions (reg for short) 
     1) Reg, allow us to create a pattern
        1) Re's are typically used to identify and manipulate specific pieces of data.
     2) Egrep, egrep is a program which will search a given set of data and print every line which contains a given pattern.
        1) It is an extension of a program called grep
        2) egrep [command line options] <pattern> [path]
 	  1) egrep 'mellon' mysampledata.txt
-	  2) No se busca por una palabra sino por un conjunto de caracteres 
+	  2) No se busca por una palabra sino por un conjunto de caracteres
+	  3) Also note that we included the pattern within quotes. This is not always required but it is safer to get in the habit of always using them.
+	  4) 
