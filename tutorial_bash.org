@@ -3,4 +3,79 @@
 * Renombrar archivos
 1) mv <file 1> <file 2>
    1) dentro del mismo directorio
-* 
+* Wildcards
+1) *
+   1) Representa el zero o más carácteres
+2) ?
+   1) Representa un único caracter
+3) []
+   1) Representa un arreglo de caracteres
+      1)ls  [ab], encuentra un archivo que empieze con a o con b, 
+4) ^
+   1) Representa negación
+      1) ls ^ [ab], que no empieze ni con a ni con b
+      2) ls -la *.[^1-30]*
+	 1) muestra todos los archivos que tengan cualquier nombre, pero en su extension no tengan ninguna secuencia
+	    de numeros del 1-30, se tiene que poner el *, ya que el operador [] únicamente opera con un caracter?
+5) [[[:upper:]]] (mayus)
+   1) se usa para definir una letra mayuscula
+      1) ls -la [[[[:upper:]]]]*
+* Permisos
+1) r-read
+2) w-write
+3) x-execute
+   1) Segmentacion
+      1) primeros 3-owner
+      2) segundos 3-group
+      3) ulti 3-others
+4) Cambio de permisos
+   1) chmod [permissions][path]
+      1) forma manual
+	 1) ugoa (user)(group)(owner)(all)
+	 2) asignar permiso: +, elminar permiso -
+	 3) r(read),w(write),x(execute)
+* Filtros 
+1) Head
+   1) Imprime las primeras x lineas. Por default son 10
+   2) head [-number of lines] [path]
+2) Tail
+   1) Imprime las ultimas x lineas. Por default son 10
+   2) tail [-number of lines] [path]
+3) sort
+   1) Ordena el resultado de diferentes maneras
+   2) sort [-options][path]
+4) Nl
+   1) Imprime el número de lineas del archivo
+   2) nl  [-options][path]
+   3) nl -s '. ' -w 10 mysampledata.txt
+5) Wc (word count)
+   1) muestra la cantidad de caracteres. por default da los 3.
+      1) words-caracteres-lineas
+	 1) wd  [-options][path]
+6) Cut [-options][path]
+   1) programa para cortar el contenido que es separado en columnas y solo se necesitan ciertas filas
+   2) cut -f 1 -d ' ' mysampledata.txt
+   3) This is what the -d option does (we include the space within single quotes so it knows this is part of the argument). The -f option allows us to specify which field or fields we would like. If we wanted 2 or more fields then we separate them with a comma as below.
+7) Sed (stream editor)
+   1) Permite hacer una busqueda y reemplazo de nuestra información.
+   2) sed <expression> [path]
+   3) s/search/replace/g
+      1) Reemplaza oranges by bananas
+	 1) 3) s/search/replace/g
+      2) Reemplaza oranges by bananas
+	 1) sed 's/oranges/bananas/g' mysampledata.txt
+8) Uniq (remueve lineas duplicadas de un archivo)
+   1) Remueve lineas duplicadas que estén adjuntas. Para remover lineas iguales que no sean adjuntas
+      hay que usar el piping y redirection
+   2) uniq [options] [path]
+   3) uniq mysampledata.txt
+9) tac (imprime el archivo del último al primero ) (inverso de cat)
+   1) tac [path]
+10) Grep and regular Expressions (reg for short) 
+    1) Reg, allow us to create a pattern
+       1) Re's are typically used to identify and manipulate specific pieces of data.
+    2) Egrep, egrep is a program which will search a given set of data and print every line which contains a given pattern.
+       1) It is an extension of a program called grep
+       2) egrep [command line options] <pattern> [path]
+	  1) egrep 'mellon' mysampledata.txt
+	  2) No se busca por una palabra sino por un conjunto de caracteres 
