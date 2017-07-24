@@ -8,28 +8,19 @@
 4) pattern
    1) Se escribe con comillas simples. 'mydata.txt'
       1) usually a string
+5) Wildcards vs Regular Expressions
+   1) Wildcards operan mediante un file (en linux everything is a file, even a path)
+      1) with linux is that under the hood, everything is actually a file. 
+	 A text file is a file, a directory is a file, your keyboard is a file (one that the
+	 system reads from only), your monitor is a file (one that the system writes to only) etc
+      2) [file ...]
+   2) Reg, operan cómo un pattern (comillas)
+      1) [pattern]
 * Copiar directorios de forma recursiva
 1) cp -r (directorio 1) (directorio 2)
 * Renombrar archivos
 1) mv <file 1> <file 2>
    1) dentro del mismo directorio
-* Wildcards
-1) *
-   1) Representa el zero o más carácteres
-2) ?
-   1) Representa un único caracter
-3) []
-   1) Representa un arreglo de caracteres
-      1)ls  [ab], encuentra un archivo que empieze con a o con b, 
-4) ^
-   1) Representa negación
-      1) ls ^ [ab], que no empieze ni con a ni con b
-      2) ls -la *.[^1-30]*
-	 1) muestra todos los archivos que tengan cualquier nombre, pero en su extension no tengan ninguna secuencia
-	    de numeros del 1-30, se tiene que poner el *, ya que el operador [] únicamente opera con un caracter?
-5) [[[:upper:]]] (mayus)
-   1) se usa para definir una letra mayuscula
-      1) ls -la [[[[:upper:]]]]*
 * Permisos
 1) r-read
 2) w-write
@@ -81,13 +72,94 @@
    3) uniq mysampledata.txt
 9) tac (imprime el archivo del último al primero ) (inverso de cat)
    1) tac [path]
-* Grep and regular Expressions (reg for short) 
-    1) Reg, allow us to create a pattern
-       1) Re's are typically used to identify and manipulate specific pieces of data.
-    2) Egrep, egrep is a program which will search a given set of data and print every line which contains a given pattern.
+* Wildcards (usually reffered as globbing)
+1) Wildcards are a set of building blocks that allow you to create a pattern defining a set of files or directories.
+   1) Whenever we refer to a path we may also use wildcards in that path to turn it into a set of files or directories.
+2) *
+   1) Representa el zero o más carácteres
+3) ?
+   1) Representa un único caracter
+4) []
+   1) Representa un arreglo de caracteres
+      1)ls  [ab], encuentra un archivo que empieze con a o con b, 
+5) ^
+   1) Representa negación
+      1) ls ^ [ab], que no empieze ni con a ni con b
+      2) ls -la *.[^1-30]*
+	 1) muestra todos los archivos que tengan cualquier nombre, pero en su extension no tengan ninguna secuencia
+	    de numeros del 1-30, se tiene que poner el *, ya que el operador [] únicamente opera con un caracter?
+6) [[[:upper:]]] (mayus)
+   1) se usa para definir una letra mayuscula
+      1) ls -la [[[[:upper:]]]]*
+* Egrep, grep
+    1) Egrep, egrep is a program which will search a given set of data and print every line which contains a given pattern.
        1) It is an extension of a program called grep
        2) egrep [command line options] <pattern> [path]
+       3) ejemplo
 	  1) egrep 'mellon' mysampledata.txt
 	  2) No se busca por una palabra sino por un conjunto de caracteres
 	  3) Also note that we included the pattern within quotes. This is not always required but it is safer to get in the habit of always using them.
-	  4) 
+    2) Ejemplo práctico grep
+       1) egrep 'mellon' mysampledata.txt
+	  1) Muestra únicamente los resultados con 'mellon'
+       2) egrep -n 'mellon' mysampledata.txt
+	  1) Muestra los resultados con el número de lineas
+       3) egrep -c 'mellon' mysampledata.txt
+	  1) muestra la cantidad de veces que aparece el resultado
+* Reg (regular expresssions)
+ 1) Reg, allow us to create a pattern
+    1) Re's are typically used to identify and manipulate specific pieces of data.
+    2) Re's are used all over the place. We will be demonstrating them here with grep but many other programs use them 
+ 2) List
+    1) .(dot) un único caracter
+    2) ?, el anterior carácter concide 0 o 1 única vez
+    3) *, el anterior carácter concide 0 o más veces (1, o >1)
+    4) +, el anterior carácter concide 1 o más veces (>=1)
+    5) {n} - el anterior carácter concide exactamente n veces
+    6) {n,m}, el anterior carácter concide al menos n veces y no más de m veces (sin m=infinito)
+    7) [agd], el caracter es alguno de los incluidos en los parentesis cuadrados
+    8) [^agd], el caracter no es ninguno de aquellos incluidos en los parentesis cuadrados
+    9) [c-f], el guión medio de los parentesis significa rango. Puede ser tanto la letra c,d,e, o f
+    10) (), permite agrupar múltiples carácteres para que se comporten cómo uno
+    11) | (pipe simbol), la operación logica OR
+    12) ^, concide el inicio de la liena
+    13) $, coincide el fin de la linea
+ 3) Ejemplos:
+    1) egrep '1.+' test_data.txt
+       1) Muestra el número 1, el cual tiene que estar acompanado de cualquier otro caracter a su derecha (.)
+	  por 1 o más veces (+)
+    2) egrep '1.*' test_data.txt
+       1) Muestra el número 1, el cual puede contener un caracter(.), ninguno, o más a su derecha(operador *)
+	  1) En este caso la frase: 'Oscar Azeem 1' se imprimiría, a diferencia del caso anterior, ya que con el 
+	     operador (*) puede haber o no un caracter cualquiera ?
+* Redirection
+1) Cada programa corriendo en la linea de comandos tiene automaticamente tres flujos de información conectados a el
+   1) STDIN(0)
+      1) Standard input (data proporcionada dentro del programa)
+   2) STDOUT(1)
+      1) Standard ouput (data impresa por el programa, por default la terminal)
+   3) STDERR(2)
+      1) Standard Error (para mensajes de error, por default la terminal)
+2) Importante: Si colocamos un número antes del operador >, entonces el redigira el flujo a ese stream, sino se usa un
+  numero por default el stream al que se redigire es el 1 (STDOUT)
+** Redirección a un file
+1) Operador: >
+   1) indicates to the command line that we wish the programs output (or whatever it sends to 
+      STDOUT) to be saved in a file instead of printed to the screen
+2) Concatenar salidas a un archivo existente: >>
+** Obtener valores desde un file
+1) Operador: < (minus what)
+   1) Se leera la información desde el file y se alimentara al porgrama via su STDIN stream
+2) Ejemplo:
+   1) (egrep -n '[S+]' < file_guardado) > file_a_guardar
+** Redirigiendo STDERR (standard Error)
+1) Es el stream número 2
+2) Ejemplo:
+   1) ls -l video.mpg blah.foo 2> errors.txt
+** Redigir STDERR a STDOUT and STDOUT to a file
+1) We redirect to a file first then redirect the error stream. We identify the redirection to a stream by placing an & in front of the stream 
+   number (otherwise it would redirect to a file called 1).
+2) Ejemplo:
+   1) ls -l video.mpg blah.foo > myoutput 2>&1
+* Piping (sending data from one program to another)
+
