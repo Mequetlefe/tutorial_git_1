@@ -8,7 +8,9 @@
 4) pattern
    1) Se escribe con comillas simples. 'mydata.txt'
       1) usually a string
-5) Wildcards vs Regular Expressions
+5) Ubicacion de los programas (comando which)
+   1) which <program>
+6) Wildcards vs Regular Expressions
    1) Wildcards operan mediante un file (en linux everything is a file, even a path)
       1) with linux is that under the hood, everything is actually a file. 
 	 A text file is a file, a directory is a file, your keyboard is a file (one that the
@@ -118,7 +120,7 @@
     5) {n} - el anterior carácter concide exactamente n veces
     6) {n,m}, el anterior carácter concide al menos n veces y no más de m veces (sin m=infinito)
     7) [agd], el caracter es alguno de los incluidos en los parentesis cuadrados
-    8) [^agd], el caracter no es ninguno de aquellos incluidos en los parentesis cuadrados
+    8) [^agd], el caracter no es ninguno de aquellos incluidos en los parentesis cuadrados (la negacion solo funciona para los corchetes duros)
     9) [c-f], el guión medio de los parentesis significa rango. Puede ser tanto la letra c,d,e, o f
     10) (), permite agrupar múltiples carácteres para que se comporten cómo uno
     11) | (pipe simbol), la operación logica OR
@@ -162,4 +164,83 @@
 2) Ejemplo:
    1) ls -l video.mpg blah.foo > myoutput 2>&1
 * Piping (sending data from one program to another)
-
+1) Se manda el stream de un comando a otro mediante el oeprador pipe: |
+* Process Management
+1) Comando top
+   1) Muestra los comados que están realizando un proceso
+      1) Task, otro nombre para procesos. Procesos dormidos. (sleeping)
+      2) PID (process id)
+2) Comando Ps
+   1) Muestra los comandos que demandan mas computo
+   2) ps aux
+      1) Muestra totalmente todos los comandos en el ordenador
+** Elminar un proceso
+1) comando kill
+   1) kill [signal] <PID>
+   2) kill -1 (pide cerrar el proceso)
+   3) kill -9 (cierra or fuerza bruta)
+** Procesos dormidos (jobs)
+1) comando: jobs
+2) sleep 5 &
+   1) Asigna un pid al comando sleep.
+   2) Si se espera 5 segundos ys e preciona enter, se puede observar que el comando se completo
+3) CTRL+z (suspende los programas)
+** Foreground (fg)
+1) regresa un proceso del background y lo manda al foreground
+2) fg <job number>
+* Scripting
+1) Linea de identiifacion. Identifica cual interprete debe usar. Los primeros dos caracteres se refieren cómo "shebang". Despues de eso es importante no dejar espacios del path a la rut del interprete
+   1) #!(shebang)
+      1) Le dice al sistema que el directorio siguiente será dónde se encuentra el interprete a ser usado
+      2) Si se desconoce dónde es el path, se usa el comando which
+	 1) which <program>
+	 2) which bash
+   2) /bin/bash (ruta)
+   3) Completo:
+      1) #!/bin/bash
+2) Comentarios:
+   1) se denotan con : #
+3) Extension
+   1) Linux es un sistema sin extension. Por conveninencia se nombran los scripts, con terminacion sh
+4) Ejecutar el script
+   1) Se debe proporcionar el directorio, ya que buscará en PATH. Por eso es necesario (además de tener permisos de ejecución), proporcionar el directorio actual mediante el operador punto (.)
+   2) ./myscript.sh
+** Comandos
+1) echo (impresion en pantalla)
+   1) echo 'texto sin comillas'
+   2)
+** Variables
+1) A variable is a container for a simple piece of data. They are useful if we need to work out a particular thing and then use it later on
+*** Sintaxis
+   1) Definicion
+      1) Se especifica su nombre, seguido directamente de un signo (=).
+      2) Ejemplo:
+	 1) name='NOMBRE'
+   2) Referencia a una variable
+      1) Se coloca un signo de pesos $, antes del nombre de la variable
+      2) Ejemplo:
+	 1) echo Hello $name
+*** Variables propias del sistema al ejectuar el script
+1) El nombre del script
+   1) $0
+2) Any command line arguments given to the script. $1 is the first argument, $2 the second and so on.
+   1) $1-$9
+      1) Ejemplo:
+	 1) ./myscript.sh argumento_1 argumento_2 argumento_3
+	 2) echo El segundo argumento es $2
+3) Qué tantos argumentos de la linea de comandos (command line arguments) were given to the script
+   1) $#
+4) Todos los argumentos de la linea de comandso
+   1) $*
+*** Todas las Variables
+1) $PATH
+   1) Variable que denota los directorios dónde buscar los archivos para correr un programa
+      1) echo $PATH
+      2) Directories are separated by a colon ( : ).
+2) Backtich (`) (es un acento al reves, no una comilla simple)
+   1) Salvar la salida de un comando a una variable.
+      1) Ejemplo:
+      2) lines=`cat $1 | wc -l`
+      3) echo The number of lines in the file $1 is $lines
+** Condicionales
+*** If statements
